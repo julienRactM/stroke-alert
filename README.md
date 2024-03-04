@@ -1,2 +1,2 @@
 # stroke-alert
-stroke-alert,stroke-alert,stroke-alert,stroke-alert,
+Bienvenu dans le monde féérique de l'AVC
