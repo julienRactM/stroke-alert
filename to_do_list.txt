@@ -1,4 +1,4 @@
-- Décider quoi faire des valeurs manquantes dans la colonne bmi
+- Décider comment remplacer les valeurs manquantes dans la colonne bmi
 
 - Drop ou non (oui) le genre other représenté par une seule valeur ?
 
