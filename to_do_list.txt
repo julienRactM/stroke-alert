@@ -1,7 +1,5 @@
 - Décider comment remplacer les valeurs manquantes dans la colonne bmi
 
-- Drop ou non (oui) le genre other représenté par une seule valeur ?
-
-- faire un graphique sur le rapport âge - AVC recensé
+- faire un graphique sur le rapport âge - AVC du data_set
 
 - Que faire des 1500 unknowns fumeurs sur 5000
