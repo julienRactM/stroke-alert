@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+      <h2>Contexte du projet</h2>
+      <article>
+        <p>
+          Conception d'un outil de prédiction de risque d'AVC chez les adultes de plus de 30 ans dans un but préventif.
+        </p>
+      </article>
+      <h2>Prédiction</h2>
+        <form action="/" method="post">
+
+          <!-- <label for="gender">Sexe:</label><br>
+          <select id="gender" name="gender">
+            <option value=1>femme</option>
+            <option value=0>homme</option>
+          </select><br> -->
+
+          <label for="age">Age:</label><br>
+          <input type="range" id="age" name="age" min="30" max="100" value="30"><br>
+
+
+          <label for="bmi">Imc:</label><br>
+          <input type="range" id="bmi" name="bmi" min="11" max="60" value="25"><br>
+
+
+          <label for="Residence_type">Type de résidence:</label><br>
+          <select id="Residence_type" name="Residence_type">
+            <option value=1>Urbain</option>
+            <option value=0>Rural</option>
+          </select><br>
+
+          <label for="smoking_status">Êtes vous fumeur ?:</label><br>
+          <select id="smoking_status" name="smoking_status">
+            <option value="Unknown">Ne souhaite pas se prononcer</option>
+            <option value="smokes">Oui</option>
+            <option value="never smoked">Jamais</option>
+            <option value="formerly smoked">Par le passé</option>
+          </select><br>
+
+          <!-- <input type="submit" value="Submit", class="styled-button"> -->
+          <button type="submit" class="styled-button">Execute Query</button>
+        </form>
+
+          <article>
+              <p>Oh, je vois, comment ça sent pas bon pour toi{{ comments[i] }}</p>
+          </article>
+
+{% endblock %}
