@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import sqlite3
 import joblib
 import pandas as pd
 
@@ -37,9 +36,7 @@ def index():
             age=age, bmi=bmi, Residence_type=Residence_type, smoking_status=smoking_status) # active_tab='home'
 
 
-    return render_template('index.html', titles = titles) # active_tab='home'
+    return render_template('index.html') # active_tab='home'
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# -------------------------------------------------------------------------------------------

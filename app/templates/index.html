@@ -39,8 +39,42 @@
             <option value="formerly smoked">Par le passé</option>
           </select><br>
 
+
+          <label for="hypertension">Avez-vous de l'hypertension ?:</label><br>
+          <select id="hypertension" name="hypertension">
+            <option value=1>Oui</option>
+            <option value=0>Non</option>
+          </select><br>
+
+
+          <label for="heart_disease">Avez-vous déjà eu des soucis cardiaques ?:</label><br>
+          <select id="heart_disease" name="heart_disease">
+            <option value=1>Oui</option>
+            <option value=0>Non</option>
+          </select><br>
+
+          <label for="ever_married">Avez-vous déjà été marié ?:</label><br>
+          <select id="ever_married" name="ever_married">
+            <option value=1>Oui</option>
+            <option value=0>Non</option>
+          </select><br>
+
+
+          <label for="work_type">Quel type d'emploi occupez-vous ?:</label><br>
+          <select id="work_type" name="work_type">
+            <option value="Private">Secteur privé</option>
+            <option value="Self-employed">Auto-entrepreneur</option>
+            <option value="Govt_job">Secteur public</option>
+          </select><br>
+
+          <label for="avg_glucose_level">Taux de glucose dans le sang:</label><br>
+          <input type="range" id="avg_glucose_level" name="avg_glucose_level" min="60" max="270" \
+          value="{{ avg_glucose_level | default(120) }}" , onchange=updateAvg_glucose_levelValue(this.value)><br>
+          <span id="avg_glucose_levelValue">120</span><br>
+
+
           <!-- <input type="submit" value="Submit", class="styled-button"> -->
-          <button type="submit" class="styled-button">Execute Query</button>
+          <button type="submit" class="styled-button">Résultats !</button>
         </form>
 
           <article>
