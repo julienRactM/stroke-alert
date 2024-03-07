@@ -11,18 +11,19 @@ def index():
     titles = "Allez vous subir un AVC ?"
 
     if request.method == 'POST':
-        model = joblib.load('app/app_model/model.pkl')
+        model = joblib.load('app/app_model/current_model.pkl')
         gender = request.form.get('gender')
         age = request.form.get('age')
         bmi = request.form.get('bmi')
-        Residence_type = request.form.get('Residence_type')
+        residence_type = request.form.get('residence_type')
         smoking_status = request.form.get('smoking_status')
         X_test = pd.DataFrame({'gender'         : [gender],
                                'age'            : [age],
                                'bmi'            : [bmi],
-                               'Residence_type' : [Residence_type],
+                               'Residence_type' : [residence_type],
                                'smoking_status' : [smoking_status]
                                })
+        print(X_test)
 
 
 
@@ -33,7 +34,7 @@ def index():
             comment = "Félicitation tu devrais vivre encore un peu, on se trompe à 6% quand même fait pas le fou"
 
         return render_template('index.html', titles = titles, prediction=prediction, comment=comment, gender=gender, \
-            age=age, bmi=bmi, Residence_type=Residence_type, smoking_status=smoking_status) # active_tab='home'
+            age=age, bmi=bmi, Residence_type=residence_type, smoking_status=smoking_status) # active_tab='home'
 
 
     return render_template('index.html') # active_tab='home'
