@@ -24,10 +24,8 @@ def index():
                                'smoking_status' : [smoking_status]
                                })
         print(X_test)
-
-
-
         prediction = model.predict(X_test)
+
         if prediction == 1 :
             comment = "Oh, je vois, comment ça sent pas bon pour toi"
         else :
