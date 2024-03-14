@@ -1,3 +1,6 @@
 # app
 dump*
 *checkpoints*
+*slides*
+.log
+main_notebook.slides.html
