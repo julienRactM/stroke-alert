@@ -29,7 +29,7 @@ def index():
         if prediction == 1 :
             comment = "Oh, je vois, comment ça sent pas bon pour toi"
         else :
-            comment = "Félicitation tu devrais vivre encore un peu, on se trompe à 6% quand même fait pas le fou"
+            comment = "Félicitation tu devrais vivre encore un peu"
 
         return render_template('index.html', titles = titles, prediction=prediction, comment=comment, gender=gender, \
             age=age, bmi=bmi, Residence_type=residence_type, smoking_status=smoking_status) # active_tab='home'
