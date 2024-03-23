@@ -173,12 +173,12 @@ def modele_dummy(X_train,y_train,X_test,y_test):
     y_pred_proba_dummy = dummy_clf.predict_proba(X_test)[:, 1]
     dummy_score = dummy_clf.score(X_train,y_train)
     
-   # print('Optimisation du seuil de classification pour maximiser l\'AUC')      
-   # fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba_dummy)
-   # optimal_idx = np.argmax(tpr - fpr)
-   # optimal_threshold = thresholds[optimal_idx]
+    print('Optimisation du seuil de classification pour maximiser l\'AUC')      
+    fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba_dummy)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
     
-   # y_pred_optimal_dummy = (y_pred_proba_dummy>= optimal_threshold).astype(int)
+    y_pred_dummy = (y_pred_proba_dummy>= optimal_threshold).astype(int)
     
     print('Scores du modèle ')
     print(evaluate_classification_model(y_test, y_pred_dummy, y_pred_proba_dummy))
@@ -208,11 +208,11 @@ def random_forest(X_train,y_train,X_test,y_test,x_col,mode='undersampling',stand
         
     print('******* Optimisation du seuil de classification pour maximiser l\'AUC *******')      
    
-    #fpr, tpr, thresholds = roc_curve(y_test, y_proba)
-    #optimal_idx = np.argmax(tpr - fpr)
-    #optimal_threshold = thresholds[optimal_idx]
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
     
-    #y_pred_optimal = (y_proba >= optimal_threshold).astype(int)
+    y_pred = (y_proba >= optimal_threshold).astype(int)
     
     print('******* Création d\'un dictionnaire pour optimiser les paramètres ******* ')
     
@@ -260,31 +260,33 @@ def random_forest(X_train,y_train,X_test,y_test,x_col,mode='undersampling',stand
     y_pred_best = best_rf_model.predict(X_test)
     y_proba_best = best_rf_model.predict_proba(X_test)[:, 1]
     
-    #print('******* Optimisation du seil de classification pour maximiser l\'AUC ******* ')      
+    print('******* Optimisation du seil de classification pour maximiser l\'AUC ******* ')      
    
-    #fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
-    #optimal_idx = np.argmax(tpr - fpr)
-    #optimal_threshold = thresholds[optimal_idx]
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
 
    
-    #y_pred_optimal_best = (y_proba_best >= optimal_threshold).astype(int)
+    y_pred_best = (y_proba_best >= optimal_threshold).astype(int)
     print('******* Scores du modèle après optimisation ******* ')
     
     results = evaluate_classification_model(y_test, y_pred_best, y_proba_best)
    
-    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost','Best precision Score','sampling','standardisation','Best param','feature'])
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
+
+    true_positives = np.sum((y_test == 1) & (y_pred_best == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best == 0))
+
+    results_df.loc[0] = ['Random forest',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
+                         mode, standardiser, grid_search.best_params_, feature]
    
-    results_df.loc[0] = ['Random forest',grid_search.best_score_, 
-                         grid_search.cv_results_['mean_test_recall'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_cost'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_precision'][grid_search.best_index_],
-                        mode, standardiser, grid_search.best_params_,feature]
-    
-    
     print(results_df)
-    if len(x_col) > 1: 
-        print('******* Affichage des features importances après optimisation ******* ')
-        print(feature_importance_rf(best_rf_model, x_col))
     
     print('******* Affichage de la courbe Roc après optimisation ******* ')
     print(create_roc_auc_plot(best_rf_model,y_pred_best, y_test))
@@ -299,7 +301,7 @@ def random_forest(X_train,y_train,X_test,y_test,x_col,mode='undersampling',stand
 
 #######################################
 
-def logistic_regression(X_train, y_train, X_test, y_test,x_col,mode='undersampling',standardiser='RobustScaler',feature='Hypertension'):
+def logistic_regression(X_train,y_train,X_test,y_test,x_col,mode='undersampling',standardiser='RobustScaler',feature ='Hypertension'): 
     print('Création d\'un modèle de régression logistique')
     logreg_model = LogisticRegression(random_state=42, max_iter=1000)
     
@@ -311,11 +313,11 @@ def logistic_regression(X_train, y_train, X_test, y_test,x_col,mode='undersampli
         
     print('Optimisation du seuil de classification pour maximiser l\'AUC')      
 
-    #fpr, tpr, thresholds = roc_curve(y_test, y_proba)
-    #optimal_idx = np.argmax(tpr - fpr)
-    #optimal_threshold = thresholds[optimal_idx]
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
     
-    #y_pred_optimal = (y_proba >= optimal_threshold).astype(int)
+    y_pred = (y_proba >= optimal_threshold).astype(int)
     
    
     class_counts = np.bincount(y_train)
@@ -360,30 +362,34 @@ def logistic_regression(X_train, y_train, X_test, y_test,x_col,mode='undersampli
     y_pred_best = best_lr_model.predict(X_test)
     y_proba_best = best_lr_model.predict_proba(X_test)[:, 1]
     
-    #print('Optimisation du seuil de classification pour maximiser l\'AUC')      
+    print('Optimisation du seuil de classification pour maximiser l\'AUC')      
     
-    #fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
-    #optimal_idx = np.argmax(tpr - fpr)
-    #optimal_threshold = thresholds[optimal_idx]
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
 
     
-    #y_pred_optimal_best = (y_proba_best >= optimal_threshold).astype(int)
+    y_pred_best = (y_proba_best >= optimal_threshold).astype(int)
     print('Scores du modèle après optimisation')
     
     results = evaluate_classification_model(y_test, y_pred_best, y_proba_best)
     
-    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost','Best precision Score','sampling','standardisation','Best param','feature'])
-    
-    results_df.loc[0] = ['Logistic Regression', grid_search.best_score_, 
-                         grid_search.cv_results_['mean_test_recall'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_cost'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_precision'][grid_search.best_index_],
-                        mode, standardiser, grid_search.best_params_,feature]
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
+
+    true_positives = np.sum((y_test == 1) & (y_pred_best == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best == 0))
+
+    results_df.loc[0] = ['Logistic Regression',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
+                         mode, standardiser, grid_search.best_params_, feature]
     
     print(results_df)
-    if len(x_col) > 1:  # Check if the number of features is greater than 1
-        print('Affichage des features importances avant optimisation')
-        print(feature_importance_reg(best_lr_model, x_col))
+    
     print('Affichage de la courbe Roc après optimisation')
     print(create_roc_auc_plot(best_lr_model,y_test, y_pred_best))
     
@@ -450,14 +456,19 @@ def svm_classifier(X_train, y_train, X_test, y_test, x_col, mode='undersampling'
     print('******* Scores du modèle après optimisation ******* ')
     results = evaluate_classification_model(y_test, y_pred_best_svm, y_proba_best)
 
-    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost','Best precision Score','sampling','standardisation','Best param','feature'])
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
 
-    results_df.loc[0] = ['SVM', grid_search.best_score_, 
-                         grid_search.cv_results_['mean_test_recall'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_cost'][grid_search.best_index_], 
-                         grid_search.cv_results_['mean_test_precision'][grid_search.best_index_],
+    true_positives = np.sum((y_test == 1) & (y_pred_best_svm == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best_svm == 0))
+
+    results_df.loc[0] = ['SVM',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
                          mode, standardiser, grid_search.best_params_, feature]
-
     print(results_df)
     
     print('******* Affichage de la courbe Roc après optimisation ******* ')
@@ -542,7 +553,7 @@ def feature_importance_rf(model,x_col):
     importance_data = pd.DataFrame()
     importance_data['features'] = x_col
     importance_data['importance']= model.feature_importances_
-    sns.barplot(data=importance_data[:15], y='features',x='importance')
+    sns.barplot(data=importance_data[:19], y='features',x='importance')
     plt.show()
     
 #######################################
