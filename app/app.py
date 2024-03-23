@@ -27,9 +27,9 @@ def index():
         prediction = model.predict(X_test)
 
         if prediction == 1 :
-            comment = "Oh, je vois, comment ça sent pas bon pour toi"
+            comment = "L'algorithme détecte un risque d'AVC"
         else :
-            comment = "Félicitation tu devrais vivre encore un peu"
+            comment = "L'algorithme ne prédit pas de risque accru d'AVC"
 
         return render_template('index.html', titles = titles, prediction=prediction, comment=comment, gender=gender, \
             age=age, bmi=bmi, Residence_type=residence_type, smoking_status=smoking_status) # active_tab='home'
