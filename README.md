@@ -104,7 +104,7 @@ Nos deux groupes présentent des caractéristiques différentes. C'est pour cett
 
 ## Imputation
 
-On opte pour utiliser KNN Imputer sur la variable BMI et on choisit une imputation hybride des valeurs manquantes de la colonne smoking_status, on part du postulat que les individus mineurs sont non fumeurs et on observe que les personnes travaillant dans le secteur privé ont plus tendance à être fumeurs que ceux travaillant dans le secteur public, ces derniers seront imputés comme étant non fumeurs et les autres comme fumeurs.
+On opte pour utiliser KNN Imputer sur la variable BMI et on choisit une imputation hybride des valeurs manquantes de la colonne smoking_status, on part du postulat que les individus mineurs sont non fumeurs et on observe qu'une part importante des personnes âgés entre 61 et 80 ans, ilsseront imputés comme étant fumeurs et le reste comme étant non fumeurs.
 
 
 
