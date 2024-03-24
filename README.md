@@ -1,8 +1,13 @@
 # Projet de Data Engineering et Data Science de la plateforme  **stroke-alert**.
 
 ## Informations importantes à l'appréciation du projet :
+- **3. Extraire les informations importantes**
 - pour le script .py de l'exécution de la prédiction
-- Le requirement.txt est conséquent du fait que nous sommes 3 à travailler sur le projet avec des librairies variés et utilisons flask.
+  Il faut entrer en ligne de commande :
+          python script.py age(float range[10-120]) hypertension(int 1=True) avg_glucose_level(float range [50 300]) heart_disease(int 1=True) smoking_status(str [smokes - formerly smoked - never smoked])
+
+
+- Le requirement.txt est conséquent du fait que nous sommes 3 à travailler sur le projet avec des librairies variées et utilisons flask.
 
 
 
@@ -180,11 +185,16 @@ C'est une famille d'algorithmes d'apprentissage automatique qui permettent de r�
 
 #### Conclusion sur les résultats des models en n'utilisant qu'une seule feature :
 
+
 Le random forest utilisé avec age obtient ces résultats:
 * Accuracy : 0.72
 * Recall : 0.91
 * True positives : 41
 * True negatives :  679
+
+On obtient des résultats déjà assez satisfaisants en n'utilisant que la feature age sur les models de régression linéaire et random forest. Le recall étant élevé sans pour autant trop perdre en accuracy comme c'est le cas avec le SVM qui lui excelle en recall mais réalise beaucoup trop de prédiction de risques d'AVC, ce qui dégrade fortement son accuracy.
+
+On peut bien entendu espérer de meilleurs résultats en ajoutant de nouvelles variables à l'entraînement du model.
 
 #### Modelisation sur plusieurs features
 
