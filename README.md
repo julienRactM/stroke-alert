@@ -146,7 +146,6 @@ Sklearn propose 3 types de standardiseurs :
 On détermine que le Robust Scaler correspond à notre cas d'usage, il est très flexible et la distribution de nos données n'est pas normale.
 
 
-
 ### Sélection des Features
 
 On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées avec la variable cible "stroke".
