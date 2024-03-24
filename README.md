@@ -2,6 +2,7 @@
 
 ## Informations importantes à l'appréciation du projet :
 - pour le script .py de l'exécution de la prédiction
+- Le requirement.txt est conséquent du fait que nous sommes 3 à travailler sur le projet avec des librairies variés et utilisons flask.
 
 
 
@@ -127,7 +128,9 @@ Il crée une colonne binaire distincte pour chaque catégorie unique. Utile lors
 
 Il ressemble au LabelEncoder, mais avec la possibilité de spécifier un ordre explicite des catégories.
 
-Pour mon jeu de données, je décide d'utiliser le One Hot Encodeur.
+**Dans notre cas nous aurons uniquement besoin du OneHotEncoder pour la feature smoking_status.**
+
+
 
 ## Standardisation (normalisation)
 
@@ -140,13 +143,52 @@ Sklearn propose 3 types de standardiseurs :
 
 **On détermine que le Min Max Scaler correspond à notre cas d'usage, ayant décider de nous séparer des outliers sur les variables que l'on compte utiliser**
 
-On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées entre elles pour limiter la multicolinéarité de nos features.
+### Sélection des Features
 
-**Colonnes corrélées à smoking_status:**
-* Age
-* Avg_glucose_level
-* gender
-* hypertension
-* heart_disease
-* ever_married
-* work_type
+On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées entre elles pour limiter la multicolinéarité de nos features et sélectionner les features que nous utiliserons pour le model.
+
+
+### Modelisation
+
+Nos données sont en fin exploitable pour un algorithme de classification supervisée
+**Explication de la classification supervisée**
+La classification supervisée est un type d'apprentissage supervisé où l'algorithme est entrainé sur un dataset dit labélisé, la caractéristique(feature) que l'on va chercher à prédire doit déjà exister dans le jeu de données pour l'appliquer.
+
+C'est donc un processus fondamentalement différent de l'apprentissage non supervisé où la caractéristique que l'on souhaite prédire n'existe pas dans le jeu de données.
+
+
+#### Modelisation sur une seule feature
+
+Ne devant utiliser qu'une seule feature nous choisissons d'utiliser l'âge pour la régression logistique et le random forest aux dépens de l'hypertension/maladies cardiaques et nous choisissons bmi pour le svm.
+
+nous avons décider d'utiliser les models suivants:
+* **regression logistique**
+La régression logistique est un modèle statistique permettant d’étudier les relations entre un ensemble de variables qualitatives Xi et une variable qualitative Y.
+Il s’agit d’un modèle linéaire généralisé utilisant une fonction logistique comme fonction de lien.
+
+![alt text](image-2.png)
+
+* **random forest**
+Random forest signifie « forêt aléatoire », c’est un algorithme qui se base sur l’assemblage d’arbres de décision. Il est assez intuitif à comprendre, rapide à entraîner et il produit des résultats généralisables.
+
+![alt text](image-1.png)
+
+* **SVM**
+C'est une famille d'algorithmes d'apprentissage automatique qui permettent de résoudre des problèmes tant de classification que de régression ou de détection d'anomalie.
+
+![alt text](image-3.png)
+
+#### Conclusion sur les résultats des models en n'utilisant qu'une seule feature :
+
+Nos résultats sont déjà prometteurs avec une seule feature, notamment pour le random forest et la régression logistique qui ont un rapport précision/recall intéressant tandis que le SVM est excellent pour prévoir les avc avérés mais prédit un nombre bien trop important d'individus n'ayant pas subis d'AVC comme étant susceptible d'en subir un.
+
+
+#### Modelisation sur plusieurs features
+
+On choisit de conserver le model random forest et d'y rajouter les features que nous considérons impactantes lors de nos précédentes observations, c'est-à-dire l'âge, l'hypertension, les niveaux de glucose moyens, les maladies cardiaques et le status de fumeur
+
+![alt text](image-5.png)
+
+
+
+#### Conclusion sur les résultats des models complets :

@@ -1,0 +1,9 @@
+- formatter le main notebook
+- ajouter l'ordre dans lesquels donner les variables pour le script .py
+- guide de l'application
+- finir readme
+- corriger readme avec message sarah
+- push les modifications finales sur la branche principale du github
+- rajouter des dossiers images pour les imgs du readme
+- demander à Sarah de mettre son interprétation dans #### Conclusion sur les résultats des models complets :
+ du readme
