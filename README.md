@@ -128,7 +128,7 @@ Il crée une colonne binaire distincte pour chaque catégorie unique. Utile lors
 
 Il ressemble au LabelEncoder, mais avec la possibilité de spécifier un ordre explicite des catégories.
 
-**Dans notre cas nous aurons uniquement besoin du OneHotEncoder pour la feature smoking_status.**
+**Dans notre cas nous avons utilisé le OneHotEncoder.**
 
 
 
@@ -141,14 +141,12 @@ Sklearn propose 3 types de standardiseurs :
 * **Min Max Scaler** : Il met à l'échelle les données dans une plage spécifique, généralement entre 0 et 1. Il est utile lorsque les données ont une distribution non normale ou avec des algorithmes sensibles à l'échelle.
 * **Robust Scaler** : Il utilise des statistiques robustes en éliminant les médianes et en échelonnant les données en fonction des quantiles. Cela le rend robuste aux valeurs aberrantes.
 
-**On détermine que le Min Max Scaler correspond à notre cas d'usage, ayant décider de nous séparer des outliers sur les variables que l'on compte utiliser**
-
-On détermine que le Robust Scaler correspond à notre cas d'usage, il est très flexible et la distribution de nos données n'est pas normale.
+**On détermine que le Robust Scaler correspond à notre cas d'usage, il est très flexible et la distribution de nos données n'est pas normale.**
 
 
 ### Sélection des Features
 
-On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées avec la variable cible "stroke".
+On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées avec la variable cible **"stroke"**.
 
 
 ### Modelisation
@@ -162,9 +160,9 @@ C'est donc un processus fondamentalement différent de l'apprentissage non super
 
 #### Modelisation sur une seule feature
 
-Ne devant utiliser qu'une seule feature nous choisissons d'utiliser l'âge pour la régression logistique et le random forest aux dépens de l'hypertension/maladies cardiaques et nous choisissons bmi pour le svm.
+Les tests réalisés et enregistrés dans résultats_modeles.csv, montrent que la feature qui permet d'obtenir un meilleur score est la variable **age** encodée avec un RobustScaler et un undersampling. 
+Les modèles sélectionnés pour effectuer ces tests sont:  
 
-nous avons décider d'utiliser les models suivants:
 * **regression logistique**
 La régression logistique est un modèle statistique permettant d’étudier les relations entre un ensemble de variables qualitatives Xi et une variable qualitative Y.
 Il s’agit d’un modèle linéaire généralisé utilisant une fonction logistique comme fonction de lien.
@@ -183,8 +181,11 @@ C'est une famille d'algorithmes d'apprentissage automatique qui permettent de r�
 
 #### Conclusion sur les résultats des models en n'utilisant qu'une seule feature :
 
-Nos résultats sont déjà prometteurs avec une seule feature, notamment pour le random forest et la régression logistique qui ont un rapport précision/recall intéressant tandis que le SVM est excellent pour prévoir les avc avérés mais prédit un nombre bien trop important d'individus n'ayant pas subis d'AVC comme étant susceptible d'en subir un.
-
+Le random forest utilisé avec age obtient ces résultats:  
+* Accuracy : 0.72
+* Recall : 0.91
+* True positives : 41
+* True negatives :  679
 
 #### Modelisation sur plusieurs features
 
@@ -195,3 +196,11 @@ On choisit de conserver le model random forest et d'y rajouter les features que 
 
 
 #### Conclusion sur les résultats des models complets :
+
+Le random forest utilisé avec age obtient ces résultats:  
+* Accuracy : 0.78
+* Recall : 0.93
+* True positives : 43
+* True negatives :  642
+
+Le modèle contenant plusieurs features permet de détecter plus de patient atteint d'avc mais il prédit également légèrement plus de faux positif que le modèle avec seulement la variable 'age'.
