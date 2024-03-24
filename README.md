@@ -143,9 +143,13 @@ Sklearn propose 3 types de standardiseurs :
 
 **On détermine que le Min Max Scaler correspond à notre cas d'usage, ayant décider de nous séparer des outliers sur les variables que l'on compte utiliser**
 
+On détermine que le Robust Scaler correspond à notre cas d'usage, il est très flexible et la distribution de nos données n'est pas normale.
+
+
+
 ### Sélection des Features
 
-On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées entre elles pour limiter la multicolinéarité de nos features et sélectionner les features que nous utiliserons pour le model.
+On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées avec la variable cible "stroke".
 
 
 ### Modelisation
