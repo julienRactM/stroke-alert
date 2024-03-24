@@ -1,0 +1,13 @@
+Modèle,Best accuracy,Best recall,Best cost,Best precision Score,True Positives,True Negatives,sampling,standardisation,Best param,feature
+Random forest,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 20}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.28,1.0,727,0.06,45,234,oversampling,MinMaxScaler,"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
+Random forest,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 20}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.28,1.0,727,0.06,45,234,oversampling,MinMaxScaler,"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
+Random forest,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 20}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.28,1.0,727,0.06,45,234,oversampling,MinMaxScaler,"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
+Random forest,0.61,1.0,392,0.1,45,569,oversampling,MinMaxScaler,"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,oversampling,MinMaxScaler,"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.29,1.0,713,0.06,45,248,oversampling,MinMaxScaler,"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
