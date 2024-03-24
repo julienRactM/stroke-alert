@@ -196,7 +196,7 @@ On choisit de conserver le model random forest et d'y rajouter les features que 
 
 #### Conclusion sur les résultats du model complet :
 
-Le random forest utilisé avec age obtient ces résultats:
+Le random forest utilisé avec les variables sélectionnées obtient ces résultats:
 * Accuracy : 0.78
 * Recall : 0.93
 * True positives : 43
