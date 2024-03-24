@@ -104,9 +104,7 @@ Nos deux groupes présentent des caractéristiques différentes. C'est pour cett
 
 ## Imputation
 
-On opte pour utiliser KNN Imputer sur la variable BMI et on choisit une imputation hybride des valeurs manquantes de la colonne smoking_status, on part du postulat que les personnages mineurs sont non fumeurs, puis on
-
-
+On opte pour utiliser KNN Imputer sur la variable BMI et on choisit une imputation hybride des valeurs manquantes de la colonne smoking_status, on part du postulat que les individus mineurs sont non fumeurs et on observe que les personnes travaillant dans le secteur privé ont plus tendance à être fumeurs que ceux travaillant dans le secteur public, ces derniers seront imputés comme étant non fumeurs et les autres comme fumeurs.
 
 
 
@@ -149,6 +147,7 @@ Sklearn propose 3 types de standardiseurs :
 On réalise des tests anova et de khi2 afin de déterminer quelles variables sont corrélées avec la variable cible **"stroke"**.
 
 
+
 ### Modelisation
 
 Nos données sont en fin exploitable pour un algorithme de classification supervisée
@@ -160,8 +159,8 @@ C'est donc un processus fondamentalement différent de l'apprentissage non super
 
 #### Modelisation sur une seule feature
 
-Les tests réalisés et enregistrés dans résultats_modeles.csv, montrent que la feature qui permet d'obtenir un meilleur score est la variable **age** encodée avec un RobustScaler et un undersampling. 
-Les modèles sélectionnés pour effectuer ces tests sont:  
+Les tests réalisés et enregistrés dans résultats_modeles.csv, montrent que la feature qui permet d'obtenir un meilleur score est la variable **age** encodée avec un RobustScaler et un undersampling.
+Les modèles sélectionnés pour effectuer ces tests sont:
 
 * **regression logistique**
 La régression logistique est un modèle statistique permettant d’étudier les relations entre un ensemble de variables qualitatives Xi et une variable qualitative Y.
@@ -181,7 +180,7 @@ C'est une famille d'algorithmes d'apprentissage automatique qui permettent de r�
 
 #### Conclusion sur les résultats des models en n'utilisant qu'une seule feature :
 
-Le random forest utilisé avec age obtient ces résultats:  
+Le random forest utilisé avec age obtient ces résultats:
 * Accuracy : 0.72
 * Recall : 0.91
 * True positives : 41
@@ -195,9 +194,9 @@ On choisit de conserver le model random forest et d'y rajouter les features que 
 
 
 
-#### Conclusion sur les résultats des models complets :
+#### Conclusion sur les résultats du model complet :
 
-Le random forest utilisé avec age obtient ces résultats:  
+Le random forest utilisé avec age obtient ces résultats:
 * Accuracy : 0.78
 * Recall : 0.93
 * True positives : 43
