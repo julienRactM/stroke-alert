@@ -13,7 +13,7 @@ def model_prediction(age, hypertension, avg_glucose_level, heart_disease, smokin
                        'smoking_status' : [smoking_status]
                        })
 
-    return model.predict(X_test)
+    return [model.predict(X_test), model.predict_proba(X_test)]
 
 def error_message():
     print("""Il faut entrer en ligne de commande :
@@ -35,9 +35,9 @@ def main():
     prediction = model_prediction(age, hypertension, avg_glucose_level, heart_disease, smoking_status)
 
     if prediction == 0:
-        return print("Pas de risque accru d'avc détecté")
+        return print(f"Pas de risque accru d'avc détecté")
     elif prediction == 1:
-        return print("Risque d'avc détecté")
+        return print(f"Risque d'avc détecté")
     else:
         return print("Invalid prediction")
 

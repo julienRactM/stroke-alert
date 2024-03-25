@@ -11,13 +11,13 @@
         <form action="/" method="post">
 
           <label for="age">Age:</label><br>
-          <input type="range" id="age" name="age" min="30" max="100" value="30", onchange=updateAgeValue(this.value)><br>
+          <input type="range" id="age" name="age" min="10" max="120" value="30", onchange=updateAgeValue(this.value)><br>
           <span id="ageValue">30</span><br>
 
           <label for="hypertension">Avez-vous de l'hypertension ?:</label><br>
           <select id="hypertension" name="hypertension">
-            <option value=1>Oui</option>
             <option value=0>Non</option>
+            <option value=1>Oui</option>
           </select><br>
 
           <label for="avg_glucose_level">Taux de glucose dans le sang:</label><br>
@@ -27,23 +27,27 @@
 
           <label for="heart_disease">Avez-vous déjà eu des soucis cardiaques ?:</label><br>
           <select id="heart_disease" name="heart_disease">
-            <option value=1>Oui</option>
             <option value=0>Non</option>
+            <option value=1>Oui</option>
           </select><br>
 
           <label for="smoking_status">Êtes vous fumeur ?:</label><br>
           <select id="smoking_status" name="smoking_status">
             <!-- <option value="Unknown">Ne souhaite pas se prononcer</option> -->
-            <option value="smokes">Oui</option>
-            <option value="never smoked">Jamais</option>
             <option value="formerly smoked">Par le passé</option>
+            <option value="never smoked">Jamais</option>
+            <option value="smokes">Oui</option>
           </select><br>
           <button type="submit" class="styled-button">Résultats !</button>
         </form>
 
+
+          {% if comment %}
           <article>
-              <p>{{ comment }} {{ prediction }}</p>
+              <p>{{ comment }}</p>
+              <p>La probabilité que vous apparteniez à la classe présentant un risque accru d'AVC est de {{ predict_proba }}</p>
               <!-- ajouter predict proba ici -->
           </article>
+          {% endif %}
 
 {% endblock %}

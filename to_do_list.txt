@@ -1,6 +1,5 @@
 - Revérifier ortographe/contenu readme / main notebook
 
-
 - push les modifications finales sur la branche principale du github
 
 - justifier l'ajout des nouvelles features
@@ -9,9 +8,9 @@
 Extra :
 
 - rajouter des dossiers images pour les imgs du readme
-- Ajouter Lime à l'app, faire un predict proba en attendant.
 
 
+- adapter le model de julien à Lime pour intégration à l'app, faire un predict proba en attendant.
 - adapter le model de sarah pour qu'il puisse prendre smoking_status en entrée de pipeline.
 erreur dans l'app :
 
