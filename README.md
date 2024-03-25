@@ -1,9 +1,9 @@
 # Projet de Data Engineering et Data Science de la plateforme  **stroke-alert**.
 
 ## Informations importantes à l'appréciation du projet :
-- **3. Extraire les informations importantes**
+- Le travail de recherche à été principalement fait sur la branche preprocessing et la branche enam, le rendu est lui disponible sur la branche main.
 - Pour lancer l'application il suffit de faire : python app/app.py
-depuis la racine du projet.
+depuis la racine du projet. Il est possible d'y effectuer une prédiction du risque d'AVC basé sur les features finales que nous avons choisit d'utiliser.
 - pour le script .py de l'exécution de la prédiction
   Il faut entrer en ligne de commande :
           python script.py age(float range[10-120]) hypertension(int 1=True) avg_glucose_level(float range [50 300]) heart_disease(int 1=True) smoking_status(str [smokes - formerly smoked - never smoked])
