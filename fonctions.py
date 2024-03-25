@@ -288,6 +288,10 @@ def random_forest(X_train,y_train,X_test,y_test,x_col,mode='undersampling',stand
    
     print(results_df)
     
+    print('******* Affichage des features importances ******* ')
+    
+    print(feature_importance_rf(best_rf_model,X_train.columns)) 
+    
     print('******* Affichage de la courbe Roc après optimisation ******* ')
     print(create_roc_auc_plot(best_rf_model,y_pred_best, y_test))
     
@@ -296,6 +300,101 @@ def random_forest(X_train,y_train,X_test,y_test,x_col,mode='undersampling',stand
     
     print('******* Affichage de la matrice de confusion après optimisation ******* ')
     print(create_confusion_matrix_plot(best_rf_model,y_pred_best, y_test))  
+    
+    return y_pred, y_proba, rf_model, y_pred_best, y_proba_best, best_rf_model, results, results_df
+
+#######################################
+
+def random_forest_sans_affichage(X_train,y_train,X_test,y_test,x_col,mode='undersampling',standardiser='RobustScaler',feature='Hypertension'):
+    print("******* Création d'un modèle ********")
+    rf_model = RandomForestClassifier(random_state=42)
+    print('******* Entrainement du modèle sur X_train / y_train *******')
+    rf_model.fit(X_train, y_train)
+   
+    y_pred = rf_model.predict(X_test)
+    y_proba = rf_model.predict_proba(X_test)[:, 1]
+        
+    print('******* Optimisation du seuil de classification pour maximiser l\'AUC *******')      
+   
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
+    
+    y_pred = (y_proba >= optimal_threshold).astype(int)
+    
+    print('******* Création d\'un dictionnaire pour optimiser les paramètres ******* ')
+    
+    class_counts = np.bincount(y_train)
+    n_classes = len(class_counts)
+    class_weights = {i: sum(class_counts)/class_counts[i] for i in range(n_classes)}
+    
+   
+    param_grid = {
+    'n_estimators': [10,20,50,75],
+    'max_depth': [None,1,5,10,15],
+    'class_weight':['balanced',class_weights]   }
+    
+    print('******* Création d\'un dictionnaire de scoring ******* ')
+      
+    scoring = {
+     'accuracy': make_scorer(accuracy_score),
+    'recall': make_scorer(recall_score),
+         'cost': make_scorer(cost_function),
+        'precision': make_scorer(precision_score)
+    
+
+    }
+   
+   
+    grid_search = GridSearchCV(rf_model, param_grid, scoring=scoring, cv=5,verbose=1, refit='recall')
+    print('******* Execution de GridSearchCV sur le modèle ******* ')
+   
+    grid_search.fit(X_train, y_train)
+
+   
+    print("******* Best parameters: ", grid_search.best_params_)
+    print("******* Best accuracy: {:.2f}".format(grid_search.best_score_))
+    print("******* Best recall: {:.2f}".format(round(grid_search.cv_results_['mean_test_recall'][grid_search.best_index_], 2)))
+    print("******* Best cost: {:.2f}".format(round(grid_search.cv_results_['mean_test_cost'][grid_search.best_index_], 2)))
+    print("******* Best precision score: {:.2f}".format(round(grid_search.cv_results_['mean_test_precision'][grid_search.best_index_], 2)))
+
+    
+   
+    print('******* Ajustement du modèle avec les paramètres optimisés ******* ')
+    best_rf_model = grid_search.best_estimator_
+    best_rf_model.fit(X_train, y_train)
+
+    
+    y_pred_best = best_rf_model.predict(X_test)
+    y_proba_best = best_rf_model.predict_proba(X_test)[:, 1]
+    
+    print('******* Optimisation du seil de classification pour maximiser l\'AUC ******* ')      
+   
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
+
+   
+    y_pred_best = (y_proba_best >= optimal_threshold).astype(int)
+    print('******* Scores du modèle après optimisation ******* ')
+    
+    results = evaluate_classification_model(y_test, y_pred_best, y_proba_best)
+   
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
+
+    true_positives = np.sum((y_test == 1) & (y_pred_best == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best == 0))
+
+    results_df.loc[0] = ['Random forest',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
+                         mode, standardiser, grid_search.best_params_, feature]
+   
+    
     
     return y_pred, y_proba, rf_model, y_pred_best, y_proba_best, best_rf_model, results, results_df
 
@@ -403,6 +502,98 @@ def logistic_regression(X_train,y_train,X_test,y_test,x_col,mode='undersampling'
 
 #######################################
 
+def logistic_regression_sans_affichage(X_train,y_train,X_test,y_test,x_col,mode='undersampling',standardiser='RobustScaler',feature ='Hypertension'): 
+    print('Création d\'un modèle de régression logistique')
+    logreg_model = LogisticRegression(random_state=42, max_iter=1000)
+    
+    print('Entrainement du modèle sur X_train / y_train')
+    logreg_model.fit(X_train, y_train)
+
+    y_pred = logreg_model.predict(X_test)
+    y_proba = logreg_model.predict_proba(X_test)[:, 1]
+        
+    print('Optimisation du seuil de classification pour maximiser l\'AUC')      
+
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
+    
+    y_pred = (y_proba >= optimal_threshold).astype(int)
+    
+   
+    class_counts = np.bincount(y_train)
+    n_classes = len(class_counts)
+    class_weights = {i: sum(class_counts)/class_counts[i] for i in range(n_classes)}
+    
+    
+    param_grid = {
+    'penalty': ['l1','l2'],
+    'C': [0.001, 0.01, 0.1, 1, 10, 100],
+    'class_weight':['balanced', class_weights]   
+    }
+    
+    print('Création d\'un dictionnaire de scoring')
+    
+    scoring = {
+     'accuracy': make_scorer(accuracy_score),
+    'recall': make_scorer(recall_score),
+        'cost': make_scorer(cost_function),
+        'precision': make_scorer(precision_score)
+    
+    }
+    
+    
+    grid_search = GridSearchCV(logreg_model, param_grid, scoring=scoring, cv=5,verbose=1, refit='recall')
+    print('Execution de GridSearchCV sur le modèle')
+    
+    grid_search.fit(X_train, y_train)
+
+    
+    print("Best parameters: ", grid_search.best_params_)
+    print("Best accuracy: ", grid_search.best_score_)
+    print("Best recall: ", grid_search.cv_results_['mean_test_recall'][grid_search.best_index_])
+    print("Best cost: ", grid_search.cv_results_['mean_test_cost'][grid_search.best_index_])
+    print("Best precision score: ", grid_search.cv_results_['mean_test_precision'][grid_search.best_index_])
+    
+    
+    print('Ajustement du modèle avec les paramètres optimisés')
+    best_lr_model = grid_search.best_estimator_
+    best_lr_model.fit(X_train, y_train)
+
+    y_pred_best = best_lr_model.predict(X_test)
+    y_proba_best = best_lr_model.predict_proba(X_test)[:, 1]
+    
+    print('Optimisation du seuil de classification pour maximiser l\'AUC')      
+    
+    fpr, tpr, thresholds = roc_curve(y_test, y_proba_best)
+    optimal_idx = np.argmax(tpr - fpr)
+    optimal_threshold = thresholds[optimal_idx]
+
+    
+    y_pred_best = (y_proba_best >= optimal_threshold).astype(int)
+    print('Scores du modèle après optimisation')
+    
+    results = evaluate_classification_model(y_test, y_pred_best, y_proba_best)
+    
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
+
+    true_positives = np.sum((y_test == 1) & (y_pred_best == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best == 0))
+
+    results_df.loc[0] = ['Logistic Regression',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
+                         mode, standardiser, grid_search.best_params_, feature]
+    
+    
+    return y_pred, y_proba, logreg_model, y_pred_best, y_proba_best, best_lr_model, results, results_df
+
+#######################################
+
 
 def svm_classifier(X_train, y_train, X_test, y_test, x_col, mode='undersampling', standardiser='RobustScaler', feature='Hypertension'):
     print("******* Création d'un modèle SVM ********")
@@ -480,6 +671,76 @@ def svm_classifier(X_train, y_train, X_test, y_test, x_col, mode='undersampling'
     
     print('******* Affichage de la matrice de confusion après optimisation ******* ')
     print(create_confusion_matrix_plot(best_svm_model, y_pred_best_svm, y_test))  
+    
+    return y_pred_best_svm, y_proba_best, svm_model, best_svm_model, results, results_df
+
+#######################################
+
+def svm_classifier_sans_affichage(X_train, y_train, X_test, y_test, x_col, mode='undersampling', standardiser='RobustScaler', feature='Hypertension'):
+    print("******* Création d'un modèle SVM ********")
+    svm_model = SVC(random_state=42, probability=True)
+    print('******* Entrainement du modèle sur X_train / y_train *******')
+    svm_model.fit(X_train, y_train)
+   
+    y_pred = svm_model.predict(X_test)
+    y_proba = svm_model.predict_proba(X_test)[:, 1]
+        
+    
+    print('******* Création d\'un dictionnaire pour optimiser les paramètres ******* ')
+    
+    class_counts = np.bincount(y_train)
+    n_classes = len(class_counts)
+    class_weights = {i: sum(class_counts)/class_counts[i] for i in range(n_classes)}
+    
+    param_grid = {
+        'C': [0.001, 0.01, 0.1],
+        'gamma': [0.1, 1, 'auto'],
+        'kernel': ['linear', 'rbf', 'poly']
+    }
+    
+    print('******* Création d\'un dictionnaire de scoring ******* ')
+      
+    scoring = {
+        'accuracy': make_scorer(accuracy_score),
+        'recall': make_scorer(recall_score),
+        'cost': make_scorer(cost_function),
+        'precision': make_scorer(precision_score)
+    }
+   
+    grid_search = GridSearchCV(svm_model, param_grid, scoring=scoring, cv=5, verbose=1, refit='recall')
+    print('******* Execution de GridSearchCV sur le modèle ******* ')
+   
+    grid_search.fit(X_train, y_train)
+
+    print("******* Best parameters: ", grid_search.best_params_)
+    print("******* Best accuracy: {:.2f}".format(grid_search.best_score_))
+    print("******* Best recall: {:.2f}".format(round(grid_search.cv_results_['mean_test_recall'][grid_search.best_index_], 2)))
+    print("******* Best cost: {:.2f}".format(round(grid_search.cv_results_['mean_test_cost'][grid_search.best_index_], 2)))
+    print("******* Best precision score: {:.2f}".format(round(grid_search.cv_results_['mean_test_precision'][grid_search.best_index_], 2)))
+
+    print('******* Ajustement du modèle avec les paramètres optimisés ******* ')
+    best_svm_model = grid_search.best_estimator_
+    best_svm_model.fit(X_train, y_train)
+
+    y_pred_best_svm = best_svm_model.predict(X_test)
+    y_proba_best = best_svm_model.predict_proba(X_test)[:, 1]
+
+    print('******* Scores du modèle après optimisation ******* ')
+    results = evaluate_classification_model(y_test, y_pred_best_svm, y_proba_best)
+
+    results_df = pd.DataFrame(columns=['Modèle', 'Best accuracy', 'Best recall', 'Best cost', 'Best precision Score', 'True Positives', 'True Negatives', 'sampling', 'standardisation', 'Best param', 'feature'])
+
+    true_positives = np.sum((y_test == 1) & (y_pred_best_svm == 1))
+    true_negatives = np.sum((y_test == 0) & (y_pred_best_svm == 0))
+
+    results_df.loc[0] = ['SVM',
+                         round(results['accuracy'], 2),
+                         round(results['recall'], 2),
+                         round(results['cost'], 2),
+                         round(results['precision'], 2),
+                         true_positives,
+                         true_negatives,
+                         mode, standardiser, grid_search.best_params_, feature]
     
     return y_pred_best_svm, y_proba_best, svm_model, best_svm_model, results, results_df
 
