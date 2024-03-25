@@ -1,49 +1,49 @@
 Modèle,Best accuracy,Best recall,Best cost,Best precision Score,True Positives,True Negatives,Sampling,Standardisation,Feature,sampling,standardisation,Best param,feature
-Random forest,0.72,0.91,322,0.13,41,679,,,,undersampling,StandardScaler(),"{'class_weight': {0: 2.0, 1: 2.0}, 'max_depth': 1, 'n_estimators': 10}",age
-Logistic Regression,0.72,0.91,322,0.13,41,679,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
-SVM,0.27,1.0,737,0.06,45,224,,,,undersampling,StandardScaler(),"{'C': 0.001, 'gamma': 1, 'kernel': 'poly'}",age
-Random forest,0.68,0.93,346,0.12,42,645,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 50}",age
-Logistic Regression,0.72,0.91,322,0.13,41,679,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
-SVM,0.19,1.0,819,0.05,45,142,,,,oversampling,StandardScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'poly'}",age
-Random forest,0.72,0.91,322,0.13,41,679,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
-Logistic Regression,0.72,0.91,322,0.13,41,679,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",age
-Random forest,0.72,0.91,322,0.13,41,679,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 75}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,undersampling,MinMaxScaler(),"{'C': 0.01, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.61,1.0,392,0.1,45,569,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 75}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
+SVM,0.53,1.0,472,0.09,45,489,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'rbf'}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",age
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",age
+Random forest,0.68,0.91,360,0.11,41,641,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 20}",age
 Logistic Regression,0.72,0.91,322,0.13,41,679,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
-SVM,0.28,1.0,727,0.06,45,234,,,,undersampling,RobustScaler(),"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
-Random forest,0.72,0.91,322,0.13,41,679,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 75}",age
+SVM,0.29,1.0,713,0.06,45,248,,,,undersampling,RobustScaler(),"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
+Random forest,0.77,0.84,293,0.15,38,738,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",age
 Logistic Regression,0.72,0.91,322,0.13,41,679,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
 SVM,0.19,1.0,819,0.05,45,142,,,,oversampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'poly'}",age
 Random forest,0.72,0.91,322,0.13,41,679,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
 Logistic Regression,0.72,0.91,322,0.13,41,679,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",age
-Random forest,0.79,0.22,527,0.05,10,784,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
-Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",bmi
-SVM,0.67,0.38,586,0.05,17,655,,,,undersampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
-Random forest,0.94,0.04,446,0.11,2,945,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",bmi
-Logistic Regression,0.69,0.38,568,0.06,17,673,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
-SVM,0.49,0.53,705,0.05,24,466,,,,oversampling,StandardScaler(),"{'C': 0.1, 'gamma': 1, 'kernel': 'rbf'}",bmi
-Random forest,0.13,0.96,894,0.05,43,87,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
-Logistic Regression,0.69,0.38,568,0.06,17,673,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
-Random forest,0.16,0.93,872,0.05,42,119,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",bmi
-Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",bmi
-SVM,0.61,0.42,622,0.05,19,599,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
-Random forest,0.75,0.29,542,0.06,13,739,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",bmi
+Random forest,0.26,0.84,811,0.05,38,220,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 10, 'n_estimators': 10}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",bmi
+SVM,0.67,0.38,584,0.05,17,657,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.94,0.04,443,0.13,2,948,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.57,0.47,653,0.05,21,548,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.13,0.96,894,0.05,43,87,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",bmi
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.24,0.87,822,0.05,39,199,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 20}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.67,0.38,586,0.05,17,655,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.81,0.22,503,0.06,10,808,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",bmi
 Logistic Regression,0.69,0.38,568,0.06,17,673,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
 SVM,0.57,0.47,653,0.05,21,548,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
 Random forest,0.13,0.96,894,0.05,43,87,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
 Logistic Regression,0.69,0.38,568,0.06,17,673,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
-Random forest,0.64,0.58,530,0.07,26,621,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
-Logistic Regression,0.64,0.58,530,0.07,26,621,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
-SVM,0.64,0.58,530,0.07,26,621,,,,undersampling,StandardScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
-Random forest,0.64,0.58,530,0.07,26,621,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
-Logistic Regression,0.64,0.58,530,0.07,26,621,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
-SVM,0.64,0.58,530,0.07,26,621,,,,oversampling,StandardScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
-Random forest,0.64,0.58,530,0.07,26,621,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
-Logistic Regression,0.64,0.58,530,0.07,26,621,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
 Random forest,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
 Logistic Regression,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
 SVM,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
@@ -53,33 +53,33 @@ SVM,0.64,0.58,530,0.07,26,621,,,,oversampling,RobustScaler(),"{'C': 0.01, 'gamma
 Random forest,0.64,0.58,530,0.07,26,621,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
 Logistic Regression,0.64,0.58,530,0.07,26,621,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
-Random forest,0.7,0.51,501,0.08,23,680,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 50}",avg_glucose_level
-Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",avg_glucose_level
-SVM,0.87,0.42,363,0.16,19,858,,,,undersampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
-Random forest,0.81,0.22,504,0.06,10,807,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
-Logistic Regression,0.8,0.58,373,0.12,26,778,,,,oversampling,StandardScaler(),"{'C': 0.1, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
-SVM,0.87,0.42,367,0.15,19,854,,,,oversampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'rbf'}",avg_glucose_level
-Random forest,0.87,0.42,360,0.16,19,861,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",avg_glucose_level
-Logistic Regression,0.8,0.58,373,0.12,26,778,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
-Random forest,0.83,0.38,423,0.11,17,818,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 15, 'n_estimators': 20}",avg_glucose_level
-Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,RobustScaler(),"{'C': 0.1, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
+Random forest,0.72,0.51,484,0.08,23,697,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 50}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,363,0.16,19,858,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.82,0.22,501,0.06,10,810,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,oversampling,MinMaxScaler(),"{'C': 1, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,367,0.15,19,854,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 1, 'kernel': 'rbf'}",avg_glucose_level
+Random forest,0.87,0.42,360,0.16,19,861,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",avg_glucose_level
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.76,0.36,504,0.07,16,747,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 50}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",avg_glucose_level
 SVM,0.87,0.42,363,0.16,19,858,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
-Random forest,0.81,0.22,504,0.06,10,807,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
+Random forest,0.81,0.22,502,0.06,10,809,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
 Logistic Regression,0.8,0.58,373,0.12,26,778,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
 SVM,0.87,0.42,367,0.15,19,854,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'rbf'}",avg_glucose_level
 Random forest,0.87,0.42,360,0.16,19,861,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",avg_glucose_level
 Logistic Regression,0.8,0.58,373,0.12,26,778,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
-Random forest,0.89,0.27,410,0.13,12,881,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
-Logistic Regression,0.89,0.27,410,0.13,12,881,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",hypertension
-SVM,0.89,0.27,410,0.13,12,881,,,,undersampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
-Random forest,0.89,0.27,410,0.13,12,881,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
-Logistic Regression,0.89,0.27,410,0.13,12,881,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
-SVM,0.89,0.27,410,0.13,12,881,,,,oversampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
-Random forest,0.89,0.27,410,0.13,12,881,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
-Logistic Regression,0.89,0.27,410,0.13,12,881,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
 Random forest,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
 Logistic Regression,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",hypertension
 SVM,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
@@ -89,15 +89,15 @@ SVM,0.89,0.27,410,0.13,12,881,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamm
 Random forest,0.89,0.27,410,0.13,12,881,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
 Logistic Regression,0.89,0.27,410,0.13,12,881,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
-Random forest,0.92,0.24,382,0.21,11,919,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
-Logistic Regression,0.92,0.24,382,0.21,11,919,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",heart_disease
-SVM,0.92,0.24,382,0.21,11,919,,,,undersampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
-Random forest,0.92,0.24,382,0.21,11,919,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
-Logistic Regression,0.92,0.24,382,0.21,11,919,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
-SVM,0.92,0.24,382,0.21,11,919,,,,oversampling,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
-Random forest,0.92,0.24,382,0.21,11,919,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
-Logistic Regression,0.92,0.24,382,0.21,11,919,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
 Random forest,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
 Logistic Regression,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",heart_disease
 SVM,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
@@ -107,15 +107,15 @@ SVM,0.92,0.24,382,0.21,11,919,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamm
 Random forest,0.92,0.24,382,0.21,11,919,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
 Logistic Regression,0.92,0.24,382,0.21,11,919,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
-Random forest,0.41,0.87,651,0.06,39,370,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
-Logistic Regression,0.41,0.87,651,0.06,39,370,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
-SVM,0.41,0.87,651,0.06,39,370,,,,undersampling,StandardScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
-Random forest,0.41,0.87,651,0.06,39,370,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
-Logistic Regression,0.41,0.87,651,0.06,39,370,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
-SVM,0.41,0.87,651,0.06,39,370,,,,oversampling,StandardScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
-Random forest,0.41,0.87,651,0.06,39,370,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
-Logistic Regression,0.41,0.87,651,0.06,39,370,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
 Random forest,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
 Logistic Regression,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
 SVM,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
@@ -125,15 +125,159 @@ SVM,0.41,0.87,651,0.06,39,370,,,,oversampling,RobustScaler(),"{'C': 0.01, 'gamma
 Random forest,0.41,0.87,651,0.06,39,370,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
 Logistic Regression,0.41,0.87,651,0.06,39,370,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
 SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
-Random forest,0.2,1.0,809,0.05,45,152,,,,undersampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
-Logistic Regression,0.2,1.0,809,0.05,45,152,,,,undersampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
-SVM,0.2,1.0,809,0.05,45,152,,,,undersampling,StandardScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",work_type
-Random forest,0.2,1.0,809,0.05,45,152,,,,oversampling,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
-Logistic Regression,0.2,1.0,809,0.05,45,152,,,,oversampling,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
-SVM,0.2,1.0,809,0.05,45,152,,,,oversampling,StandardScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",work_type
-Random forest,0.2,1.0,809,0.05,45,152,,,,,StandardScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
-Logistic Regression,0.2,1.0,809,0.05,45,152,,,,,StandardScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
-SVM,0.96,0.0,450,0.0,0,961,,,,,StandardScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,oversampling,RobustScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.72,0.91,322,0.13,41,679,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,undersampling,MinMaxScaler(),"{'C': 0.01, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",age
+SVM,0.61,1.0,392,0.1,45,569,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 75}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
+SVM,0.53,1.0,472,0.09,45,489,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'rbf'}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",age
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",age
+Random forest,0.68,0.91,360,0.11,41,641,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 20}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
+SVM,0.29,1.0,713,0.06,45,248,,,,undersampling,RobustScaler(),"{'C': 0.01, 'gamma': 1, 'kernel': 'poly'}",age
+Random forest,0.77,0.84,293,0.15,38,738,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
+SVM,0.19,1.0,819,0.05,45,142,,,,oversampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'poly'}",age
+Random forest,0.72,0.91,322,0.13,41,679,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",age
+Logistic Regression,0.72,0.91,322,0.13,41,679,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",age
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",age
+Random forest,0.26,0.84,811,0.05,38,220,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 10, 'n_estimators': 10}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",bmi
+SVM,0.67,0.38,584,0.05,17,657,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.94,0.04,443,0.13,2,948,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.57,0.47,653,0.05,21,548,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.13,0.96,894,0.05,43,87,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",bmi
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.24,0.87,822,0.05,39,199,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 20}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.67,0.38,586,0.05,17,655,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.81,0.22,503,0.06,10,808,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 75}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.57,0.47,653,0.05,21,548,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.13,0.96,894,0.05,43,87,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 5, 'n_estimators': 50}",bmi
+Logistic Regression,0.69,0.38,568,0.06,17,673,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",bmi
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",bmi
+Random forest,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.64,0.58,530,0.07,26,621,,,,oversampling,RobustScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.64,0.58,530,0.07,26,621,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",smoking_status
+Logistic Regression,0.64,0.58,530,0.07,26,621,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",smoking_status
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",smoking_status
+Random forest,0.72,0.51,484,0.08,23,697,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 50}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,363,0.16,19,858,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.82,0.22,501,0.06,10,810,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,oversampling,MinMaxScaler(),"{'C': 1, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,367,0.15,19,854,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 1, 'kernel': 'rbf'}",avg_glucose_level
+Random forest,0.87,0.42,360,0.16,19,861,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 1.053127453546192, 1: 19.822660098522167}, 'penalty': 'l2'}",avg_glucose_level
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.76,0.36,504,0.07,16,747,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 50}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,363,0.16,19,858,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.81,0.22,502,0.06,10,809,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
+SVM,0.87,0.42,367,0.15,19,854,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'rbf'}",avg_glucose_level
+Random forest,0.87,0.42,360,0.16,19,861,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': 1, 'n_estimators': 10}",avg_glucose_level
+Logistic Regression,0.8,0.58,373,0.12,26,778,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",avg_glucose_level
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",avg_glucose_level
+Random forest,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.89,0.27,410,0.13,12,881,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.89,0.27,410,0.13,12,881,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",hypertension
+Logistic Regression,0.89,0.27,410,0.13,12,881,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",hypertension
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",hypertension
+Random forest,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': {0: 2.0, 1: 2.0}, 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,undersampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.92,0.24,382,0.21,11,919,,,,oversampling,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.92,0.24,382,0.21,11,919,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",heart_disease
+Logistic Regression,0.92,0.24,382,0.21,11,919,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",heart_disease
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",heart_disease
+Random forest,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,oversampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,oversampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.41,0.87,651,0.06,39,370,,,,oversampling,RobustScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.41,0.87,651,0.06,39,370,,,,,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",ever_married
+Logistic Regression,0.41,0.87,651,0.06,39,370,,,,,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",ever_married
+SVM,0.96,0.0,450,0.0,0,961,,,,,RobustScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",ever_married
+Random forest,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,undersampling,MinMaxScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.2,1.0,809,0.05,45,152,,,,oversampling,MinMaxScaler(),"{'C': 0.01, 'gamma': 0.1, 'kernel': 'linear'}",work_type
+Random forest,0.2,1.0,809,0.05,45,152,,,,,MinMaxScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
+Logistic Regression,0.2,1.0,809,0.05,45,152,,,,,MinMaxScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
+SVM,0.96,0.0,450,0.0,0,961,,,,,MinMaxScaler(),"{'C': 0.001, 'gamma': 0.1, 'kernel': 'linear'}",work_type
 Random forest,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'class_weight': 'balanced', 'max_depth': None, 'n_estimators': 10}",work_type
 Logistic Regression,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'C': 0.001, 'class_weight': 'balanced', 'penalty': 'l2'}",work_type
 SVM,0.2,1.0,809,0.05,45,152,,,,undersampling,RobustScaler(),"{'C': 0.1, 'gamma': 0.1, 'kernel': 'linear'}",work_type
