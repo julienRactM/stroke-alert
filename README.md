@@ -2,10 +2,13 @@
 
 ## Informations importantes à l'appréciation du projet :
 - **3. Extraire les informations importantes**
+- Pour lancer l'application il suffit de faire : python app/app.py
+depuis la racine du projet.
 - pour le script .py de l'exécution de la prédiction
   Il faut entrer en ligne de commande :
           python script.py age(float range[10-120]) hypertension(int 1=True) avg_glucose_level(float range [50 300]) heart_disease(int 1=True) smoking_status(str [smokes - formerly smoked - never smoked])
 
+  exemple : python app/script.py 75 1 150  1 smokes
 
 - Le requirement.txt est conséquent du fait que nous sommes 3 à travailler sur le projet avec des librairies variées et utilisons flask.
 
@@ -171,17 +174,17 @@ Les modèles sélectionnés pour effectuer ces tests sont:
 La régression logistique est un modèle statistique permettant d’étudier les relations entre un ensemble de variables qualitatives Xi et une variable qualitative Y.
 Il s’agit d’un modèle linéaire généralisé utilisant une fonction logistique comme fonction de lien.
 
-![alt text](image-2.png)
+<!-- ![alt text](image-2.png) -->
 
 * **random forest**
 Random forest signifie « forêt aléatoire », c’est un algorithme qui se base sur l’assemblage d’arbres de décision. Il est assez intuitif à comprendre, rapide à entraîner et il produit des résultats généralisables.
 
-![alt text](image-1.png)
+<!-- ![alt text](image-1.png) -->
 
 * **SVM**
 C'est une famille d'algorithmes d'apprentissage automatique qui permettent de résoudre des problèmes tant de classification que de régression ou de détection d'anomalie.
 
-![alt text](image-3.png)
+<!-- ![alt text](image-3.png) -->
 
 #### Conclusion sur les résultats des models en n'utilisant qu'une seule feature :
 
@@ -200,7 +203,7 @@ On peut bien entendu espérer de meilleurs résultats en ajoutant de nouvelles v
 
 On choisit de conserver le model random forest et d'y rajouter les features que nous considérons impactantes lors de nos précédentes observations, c'est-à-dire l'âge, l'hypertension, les niveaux de glucose moyens, les maladies cardiaques et le status de fumeur
 
-![alt text](image-5.png)
+<!-- ![alt text](image-5.png) -->
 
 
 
