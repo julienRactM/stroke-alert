@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Carbone App</title>
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+  </head>
+
+  <body>
+    <header>
+      <h1 class="outlined-text">Projet Stroke Alert</h1>
+      <!-- <nav class="navbar">
+      </nav> -->
+    </header>
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+
+    <footer>
+     <article>
+      <p>
+        Mangez équilibré
+      </p>
+     </article>
+    </footer>
+
+        <script>
+          function updateAgeValue(newValue) {
+            document.getElementById("ageValue").innerText = newValue;
+          }
+          function updateBmiValue(newValue) {
+            document.getElementById("bmiValue").innerText = newValue;
+          }
+          function updateAvg_glucose_levelValue(newValue) {
+            document.getElementById("avg_glucose_levelValue").innerText = newValue;
+          }
+        </script>
+
+
+  </body>
+
+</html>

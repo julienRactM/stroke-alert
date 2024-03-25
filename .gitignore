@@ -1,0 +1,9 @@
+# app
+dump*
+*checkpoints*
+*slides*
+.log
+main_notebook.slides.html
+# .png
+*image*
+old_main_notebook.ipynb
